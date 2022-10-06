@@ -4,8 +4,7 @@ import java.util.Objects;
 
 public class Users {
 
-    private int employeeId;
-
+    private  int employee_id;
     private String first;
 
     private String last;
@@ -16,8 +15,11 @@ public class Users {
 
     private boolean isManager;
 
-    public Users(int employeeId, String first, String last, String username, String password, boolean isManager) {
-        this.employeeId = employeeId;
+    public Users() {
+    }
+
+    public Users(int employee_id, String first, String last, String username, String password, boolean isManager) {
+        this.employee_id = employee_id;
         this.first = first;
         this.last = last;
         this.username = username;
@@ -25,12 +27,20 @@ public class Users {
         this.isManager = isManager;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public Users(String first, String last, String username, String password, boolean isManager) {
+        this.first = first;
+        this.last = last;
+        this.username = username;
+        this.password = password;
+        this.isManager = isManager;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public int getEmployee_id() {
+        return employee_id;
+    }
+
+    public void setEmployee_id(int employee_id) {
+        this.employee_id = employee_id;
     }
 
     public String getFirst() {
@@ -76,7 +86,7 @@ public class Users {
     @Override
     public String toString() {
         return "Users{" +
-                "employeeId=" + employeeId +
+                "employee_id=" + employee_id +
                 ", first='" + first + '\'' +
                 ", last='" + last + '\'' +
                 ", username='" + username + '\'' +
@@ -90,12 +100,11 @@ public class Users {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return employeeId == users.employeeId && isManager == users.isManager && first.equals(users.first) && last.equals(users.last) && username.equals(users.username) && password.equals(users.password);
+        return employee_id == users.employee_id && isManager == users.isManager && first.equals(users.first) && last.equals(users.last) && username.equals(users.username) && password.equals(users.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeId, first, last, username, password, isManager);
+        return Objects.hash(employee_id, first, last, username, password, isManager);
     }
-
 }
