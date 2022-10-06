@@ -21,7 +21,7 @@ public class App {
         Users loggedInUser = null;
         boolean on = true;
 
-        while (on == true) {
+        while (on) {
             if(loggedInUser == null){
                 System.out.println("Welcome to Expense Reimbursement Station!" + "\n"
                         + "Please press the number for the task you want to do" + "\n"
@@ -33,10 +33,10 @@ public class App {
 
                 switch (choice){
                     case "1":
-                        us.login();
+                        loggedInUser = us.login();
                         break;
                     case "2":
-                        us.register();
+                        loggedInUser = us.register();
                         break;
                     case  "3":
                         on = false;
@@ -44,10 +44,10 @@ public class App {
                     default:
                         System.out.println("Invalid response");
                 }
-            }else {
+            } else {
                 System.out.println("Please press the number for the task you want to do" + "\n"
                         + "1. Create a new reimbursement request " + "\n"
-                        + "3. Exit "
+                        + "2. Exit "
                 );
                 String choice = sc.nextLine();
 
@@ -65,4 +65,3 @@ public class App {
         }
     }
 }
-

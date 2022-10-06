@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Users {
 
-    private  int employee_id;
+
     private String first;
 
     private String last;
@@ -15,7 +15,18 @@ public class Users {
 
     private boolean isManager;
 
+    private  int employee_id;
+
     public Users() {
+    }
+
+    public Users(String first, String last, String username, String password, boolean isManager, int employee_id) {
+        this.first = first;
+        this.last = last;
+        this.username = username;
+        this.password = password;
+        this.isManager = isManager;
+        this.employee_id = employee_id;
     }
 
     public Users(int employee_id, String first, String last, String username, String password, boolean isManager) {
@@ -33,6 +44,9 @@ public class Users {
         this.username = username;
         this.password = password;
         this.isManager = isManager;
+    }
+
+    public Users(String receivedFirst, String receivedLast, String receivedUsername, String receivedPassword) {
     }
 
     public int getEmployee_id() {

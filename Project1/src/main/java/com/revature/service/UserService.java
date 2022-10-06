@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import com.revature.App;
 import com.revature.dao.UsersDAO;
 import com.revature.dao.UsersDAOImpl;
 import com.revature.models.Users;
@@ -41,12 +42,10 @@ public class UserService {
         System.out.println("Enter your password");
         String password = sc.nextLine();
         System.out.println("Are you a manager? Enter Y or N ");
-        String respMan = sc.nextLine().toLowerCase();
-        Boolean isManager;
-        if (respMan.equals("y")){
+        String respMan = sc.nextLine();
+        Boolean isManager = false;
+        if (respMan.equals("Y")){
             isManager = true;
-        }else{
-            isManager = false;
         }
         Users user = ud.registerEmployee(first,last,username,password,isManager);
 

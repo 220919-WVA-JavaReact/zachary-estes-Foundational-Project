@@ -12,30 +12,25 @@ public class Tickets {
 
     private String description;
 
-    private Users user;
+    private Users users;
+    private String username;
 
     public Tickets() {
     }
 
-    public Tickets(int ticketId, int dollarAmount, String description, String ticketStatus, Users user) {
-        this.ticketId = ticketId;
+    public Tickets(int dollarAmount, String description, String username) {
         this.dollarAmount = dollarAmount;
         this.description = description;
-        this.ticketStatus = ticketStatus;
-        this.user = user;
+        this.username = username;
     }
 
-    public Tickets(int ticketId, int dollarAmount, String description, String ticketStatus) {
-        this.ticketId = ticketId;
+    public Tickets(int dollarAmount, String description, Users users) {
         this.dollarAmount = dollarAmount;
         this.description = description;
-        this.ticketStatus = ticketStatus;
+        this.users = users;
     }
 
-    public Tickets(int dollarAmount, String description, Users user) {
-        this.dollarAmount = dollarAmount;
-        this.description = description;
-        this.user = user;
+    public Tickets(String username, int dollarAmount, String description) {
     }
 
     public int getTicketId() {
@@ -70,22 +65,23 @@ public class Tickets {
         this.ticketStatus = ticketStatus;
     }
 
-    public Users getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(Users user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override
     public String toString() {
         return "Tickets{" +
                 "ticketId=" + ticketId +
+                ", ticketStatus='" + ticketStatus + '\'' +
                 ", dollarAmount=" + dollarAmount +
                 ", description='" + description + '\'' +
-                ", ticketStatus='" + ticketStatus + '\'' +
-                ", user=" + user +
+                ", users=" + users +
+                ", username='" + username + '\'' +
                 '}';
     }
 
@@ -94,12 +90,11 @@ public class Tickets {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tickets tickets = (Tickets) o;
-        return ticketId == tickets.ticketId && dollarAmount == tickets.dollarAmount && description.equals(tickets.description) && ticketStatus.equals(tickets.ticketStatus) && user.equals(tickets.user);
+        return ticketId == tickets.ticketId && dollarAmount == tickets.dollarAmount && ticketStatus.equals(tickets.ticketStatus) && description.equals(tickets.description) && users.equals(tickets.users) && username.equals(tickets.username);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ticketId, dollarAmount, description, ticketStatus, user);
+        return Objects.hash(ticketId, ticketStatus, dollarAmount, description, users, username);
     }
 }
-
