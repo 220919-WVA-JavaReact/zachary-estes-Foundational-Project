@@ -1,7 +1,7 @@
-package com.revature.dao;
+package com.revatureproj.dao;
 
-import com.revature.models.Tickets;
-import com.revature.models.Users;
+import com.revatureproj.models.Tickets;
+import com.revatureproj.models.Users;
 
 public interface TicketsDAO {
 

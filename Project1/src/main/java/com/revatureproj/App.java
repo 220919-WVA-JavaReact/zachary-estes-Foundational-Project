@@ -1,8 +1,8 @@
-package com.revature;
+package com.revatureproj;
 
-import com.revature.models.Users;
-import com.revature.service.TicketsService;
-import com.revature.service.UserService;
+import com.revatureproj.models.Users;
+import com.revatureproj.service.TicketsService;
+import com.revatureproj.service.UserService;
 
 import java.util.Scanner;
 

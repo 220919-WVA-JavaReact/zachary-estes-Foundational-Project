@@ -1,12 +1,14 @@
-package com.revature.dao;
+package com.revatureproj.dao;
 
-import com.revature.models.Users;
-import com.revature.util.ConnectionUtil;
+import com.revatureproj.models.Users;
+import com.revatureproj.util.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UsersDAOImpl  implements UsersDAO{
     @Override
@@ -69,5 +71,37 @@ public class UsersDAOImpl  implements UsersDAO{
             System.out.println("Unable to register user, username is not available");
         }
         return user;
+    }
+
+    @Override
+    public List<Users> getAllUsers(){
+
+        List<Users> usersList = new ArrayList<>();
+
+        try (Connection conn = ConnectionUtil.getConnection()) {
+            String sql = "SELECT * FROM employees";
+            PreparedStatement stm = conn.prepareStatement(sql);
+
+            ResultSet rs = stm.executeQuery();
+
+            while (rs.next()){
+
+                Users user = new Users();
+
+                user.setFirst(rs.getString("first_name"));
+                user.setLast(rs.getString("last_name"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setManager(rs.getBoolean("isManager"));
+                user.setEmployee_id(rs.getInt("employee_id"));
+
+                usersList.add(user);
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Something went wrong");
+            e.printStackTrace();
+        }
+        return usersList;
     }
 }

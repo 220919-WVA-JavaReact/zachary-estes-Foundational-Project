@@ -1,9 +1,9 @@
-package com.revature.service;
+package com.revatureproj.service;
 
-import com.revature.dao.TicketsDAO;
-import com.revature.dao.TicketsDAOImpl;
-import com.revature.models.Tickets;
-import com.revature.models.Users;
+import com.revatureproj.dao.TicketsDAO;
+import com.revatureproj.dao.TicketsDAOImpl;
+import com.revatureproj.models.Tickets;
+import com.revatureproj.models.Users;
 
 import java.util.Scanner;
 

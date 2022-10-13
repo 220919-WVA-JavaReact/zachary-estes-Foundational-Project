@@ -4,7 +4,8 @@
     <list default="true" id="ab9c5728-77dc-406c-b8fc-c6e2bb115579" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project1/src/main/java/com/revature/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/src/main/java/com/revature/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project1/src/main/java/com/revature/dao/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project1/src/main/java/com/revature/dao/UsersDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/src/main/java/com/revature/dao/UsersDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project1/target/classes/com/revature/dao/UsersDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/Project1/target/classes/com/revature/dao/UsersDAOImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +23,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/estes/rvtr/zachary-estes-Foundational-Project/Project1"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/estes/rvtr/zachary-estes-Foundational-Project/Project1&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="zachary-estes-Foundational-Project" />

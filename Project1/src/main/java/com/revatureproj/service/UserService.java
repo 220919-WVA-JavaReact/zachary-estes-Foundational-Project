@@ -1,11 +1,9 @@
-package com.revature.service;
+package com.revatureproj.service;
 
-import com.revature.App;
-import com.revature.dao.UsersDAO;
-import com.revature.dao.UsersDAOImpl;
-import com.revature.models.Users;
+import com.revatureproj.dao.UsersDAO;
+import com.revatureproj.dao.UsersDAOImpl;
+import com.revatureproj.models.Users;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UserService {

@@ -1,6 +1,6 @@
-package com.revature;
+package com.revatureproj;
 
-import com.revature.util.ConnectionUtil;
+import com.revatureproj.util.ConnectionUtil;
 
 import java.sql.Connection;
 

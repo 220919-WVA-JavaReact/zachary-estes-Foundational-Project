@@ -1,12 +1,11 @@
-package com.revature.dao;
+package com.revatureproj.dao;
 
-import com.revature.models.Tickets;
-import com.revature.models.Users;
-import com.revature.util.ConnectionUtil;
+import com.revatureproj.models.Tickets;
+import com.revatureproj.models.Users;
+import com.revatureproj.util.ConnectionUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TicketsDAOImpl implements TicketsDAO {
