@@ -6,7 +6,6 @@ import com.revature.service.UserService;
 
 import java.util.Scanner;
 
-import static java.lang.System.exit;
 
 
 public class App {

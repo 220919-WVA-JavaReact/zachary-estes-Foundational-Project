@@ -66,7 +66,7 @@ public class UsersDAOImpl  implements UsersDAO{
             }
 
         }catch (SQLException e){
-            System.out.println("Unable to register user");
+            System.out.println("Unable to register user, username is not available");
         }
         return user;
     }
