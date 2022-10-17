@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revatureproj.dao.UsersDAO;
 import com.revatureproj.dao.UsersDAOImpl;
 import com.revatureproj.models.Users;
-import com.revatureproj.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
