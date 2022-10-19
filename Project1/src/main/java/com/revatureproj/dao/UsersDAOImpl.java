@@ -52,7 +52,7 @@ public class UsersDAOImpl  implements UsersDAO{
             stm.setString(2, last);
             stm.setString(3, username);
             stm.setString(4, password);
-            //stm.setBoolean(5, isManager);
+            stm.setBoolean(5, isManager);
 
             ResultSet rs;
 
@@ -62,9 +62,9 @@ public class UsersDAOImpl  implements UsersDAO{
                 String receivedLast = rs.getString("last_name");
                 String receivedUsername = rs.getString("username");
                 String receivedPassword = rs.getString("password");
-                //boolean receivedIsManager = rs.getBoolean("isManager");
+                boolean receivedIsManager = rs.getBoolean("isManager");
 
-                user = new Users(receivedFirst,receivedLast,receivedUsername,receivedPassword);
+                user = new Users(receivedFirst,receivedLast,receivedUsername,receivedPassword,receivedIsManager);
             }
 
         }catch (SQLException e){

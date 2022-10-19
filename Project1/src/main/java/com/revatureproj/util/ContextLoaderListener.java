@@ -1,7 +1,10 @@
 package com.revatureproj.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revatureproj.dao.UsersDAO;
+import com.revatureproj.dao.UsersDAOImpl;
 import com.revatureproj.servlets.LoginServlet;
+
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -16,8 +19,8 @@ public class ContextLoaderListener  implements ServletContextListener {
         System.out.println("[LOG] - The servlet context was initialized at " + LocalDateTime.now());
 
         ObjectMapper mapper = new ObjectMapper();
-
-        LoginServlet loginServlet = new LoginServlet(mapper);
+        UsersDAO ud = new UsersDAOImpl();
+        LoginServlet loginServlet = new LoginServlet(mapper, ud);
 
         ServletContext context = sce.getServletContext();
         ServletRegistration.Dynamic registeredServlet = context.addServlet("LoginServlet", loginServlet);
@@ -31,6 +34,6 @@ public class ContextLoaderListener  implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        ServletContextListener.super.contextDestroyed(sce);
+        System.out.println("[LOG] - The servlet context was destroyed at " + LocalDateTime.now());
     }
 }

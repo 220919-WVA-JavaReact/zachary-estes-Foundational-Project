@@ -11,19 +11,6 @@
         <param-value>test-context-value</param-value>
     </context-param>
 
-    <listener>
-        <listener-class></listener-class>
-    </listener>
-
-    <filter>
-        <filter-name>CustomFilter</filter-name>
-        <filter-class>com.revatureproj.filters.CustomFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>CustomFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
 
 
 </web-app>

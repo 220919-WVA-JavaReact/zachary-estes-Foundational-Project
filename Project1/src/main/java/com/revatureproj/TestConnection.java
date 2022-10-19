@@ -9,6 +9,5 @@ public class TestConnection {
         Connection conn = ConnectionUtil.getConnection();
 
         Connection conn2 = ConnectionUtil.getConnection();
-
     }
 }
