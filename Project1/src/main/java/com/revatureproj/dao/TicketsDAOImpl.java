@@ -58,4 +58,28 @@ public class TicketsDAOImpl implements TicketsDAO {
         }
         return tickets;
     }
+
+    @Override
+    public List<Tickets> getOwnTickets() {
+        List<Tickets> tickets = new ArrayList<>();
+        Users user = new Users();
+        try (Connection conn = ConnectionUtil.getConnection()){
+            String sql = "SELECT * FROM tickets WHERE username = ? ";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setString(1, user.getUsername());
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()){
+                Tickets ticket = new Tickets();
+                ticket.setTicketId(rs.getInt("ticket_id"));
+                ticket.setDollarAmount(rs.getInt("dollar_amount"));
+                ticket.setDescription(rs.getString("description"));
+                ticket.setUsername(rs.getString("username"));
+
+                tickets.add(ticket);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return tickets;
+    }
 }

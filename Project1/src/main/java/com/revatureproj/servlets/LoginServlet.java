@@ -19,7 +19,7 @@ import java.util.List;
 
 @WebServlet(
         urlPatterns = "/login",
-        loadOnStartup = 1,
+        loadOnStartup = 2,
         initParams = {
                 @WebInitParam(
                         name = "login-servlet-key",
@@ -61,30 +61,23 @@ public class LoginServlet extends HttpServlet {
         for (Users user : users) {
             if (provUserName.equals(user.getUsername()) && provPassword.equals(user.getPassword())) {
                 System.out.println("[LOG] - found user!");
-
                 HttpSession session = req.getSession();
                 session.setAttribute("auth-user", user);
-
-                resp.getWriter().println(user);
-
+                String respPayload = mapper.writeValueAsString("You are logged in! ");
+                resp.getWriter().println(respPayload + user);
                 resp.setStatus(204);
                 return;
             } else {
-
                 resp.setStatus(400);
                 resp.setContentType("application/json");
-
                 HashMap<String, Object> errorMessage = new HashMap<>();
-
                 errorMessage.put("Status code", 400);
                 errorMessage.put("Message", "No user found with provided credentials");
                 errorMessage.put("Timestamp", LocalDateTime.now().toString());
-
                 resp.getWriter().write(mapper.writeValueAsString(errorMessage));
             }
         }
     }
-
 
     //logging out
     @Override

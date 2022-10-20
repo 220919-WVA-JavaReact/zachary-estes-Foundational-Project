@@ -92,7 +92,7 @@ public void login2(HttpServletRequest req, HttpServletResponse resp) throws Serv
         String provPassword = (String) newUser.get("password");
         Boolean isManager = (boolean) newUser.get("isManager");
 
-        Users user = ud.registerEmployee(provFirst, provLast,provUsername, provPassword, isManager);
+        Users user = new Users(provFirst, provLast,provUsername, provPassword, isManager);
 
         if (user.getEmployee_id() != 0){
             System.out.println("You have successfully registered");

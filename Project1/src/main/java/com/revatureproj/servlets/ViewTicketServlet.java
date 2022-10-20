@@ -28,16 +28,18 @@ public class ViewTicketServlet extends HttpServlet {
 
     private final ObjectMapper mapper;
 
-    private final TicketsDAO td = new TicketsDAOImpl();
+    private TicketsDAO td = new TicketsDAOImpl();
 
     public ViewTicketServlet(ObjectMapper mapper, TicketsDAO td){
-        this.mapper;
-        this.td;
+        this.mapper=mapper;
+        this.td = td;
     }
 
     @Override
     public void init() throws ServletException {
-        super.init();
+        System.out.println("[LOG] - Init param ViewTicketServlet-servlet-key: " + this.getServletConfig().getInitParameter("ViewTicketServlet-servlet-key"));
+        System.out.println("[LOG] - Init param test-init-key: " + this.getServletConfig().getInitParameter("test-init-key"));
+        System.out.println("[LOG] - Context param test-init-key: " + this.getServletContext().getInitParameter("test-context-key"));
     }
 
     // approve/deny tickets
@@ -49,6 +51,9 @@ public class ViewTicketServlet extends HttpServlet {
     // view pending tickets
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Tickets> tickets = td.
+        List<Tickets> tickets = td.getTickets();
+        String respPayload = mapper.writeValueAsString(tickets);
+        resp.setContentType("application/json");
+        resp.getWriter().write(respPayload);
     }
 }

@@ -3,6 +3,7 @@ package com.revatureproj.servlets;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revatureproj.dao.UsersDAO;
 import com.revatureproj.dao.UsersDAOImpl;
+import com.revatureproj.models.Users;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -57,7 +58,6 @@ public class RegisterServlet extends HttpServlet {
             resp.getWriter().write(mapper.writeValueAsString(errorMessage));
             return;
         }
-
         HashMap<String, Object> newUser = mapper.readValue(req.getInputStream(), HashMap.class);
 
         String provFirst = (String) newUser.get("first_name");
@@ -65,11 +65,15 @@ public class RegisterServlet extends HttpServlet {
         String provUsername = (String) newUser.get("username");
         String provPassword = (String) newUser.get("password");
         boolean isManager = (boolean) newUser.get("isManager");
-
         PrintWriter writer = resp.getWriter();
-
-        ud.registerEmployee(provFirst, provLast,provUsername, provFirst, isManager);
-
-        writer.println(newUser);
+        Users user = new Users(provFirst, provLast,provUsername, provPassword, isManager);
+        boolean success = ud.registerEmployee(user);
+        if(success){
+            resp.setStatus(201);
+            resp.getWriter().write("New user has been created!");
+        }else {
+            resp.setStatus(400);
+            resp.getWriter().write("Invalid request, try again");
+        }
     }
 }

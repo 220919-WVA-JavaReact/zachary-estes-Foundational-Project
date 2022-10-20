@@ -10,4 +10,6 @@ public interface TicketsDAO {
     boolean createTicket(Tickets tickets, Users users);
 
     List<Tickets> getTickets();
+
+    List<Tickets> getOwnTickets();
 }

@@ -8,7 +8,7 @@ public interface UsersDAO {
     // get user by their login info
     Users getByLogin(String username);
     // register new user
-    Users registerEmployee(String first, String last, String username, String password, boolean isManager);
+   boolean registerEmployee(Users user);
 
     List<Users> getAllUsers();
 }
